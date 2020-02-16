@@ -1,11 +1,11 @@
 <?php
 
-namespace Pursuit\Tenants\app\Commands;
+namespace BRM\Tenants\app\Commands;
 
 use Illuminate\Console\Command;
 
-use \Pursuit\Tenants\app\Services\Tenants;
-use \Pursuit\Tenants\app\Models\Tenant;
+use \BRM\Tenants\app\Services\Tenants;
+use \BRM\Tenants\app\Models\Tenant;
 
 class Initialise extends Command
 {

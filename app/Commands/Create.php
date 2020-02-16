@@ -1,6 +1,6 @@
 <?php
 
-namespace Pursuit\Tenants\app\Commands;
+namespace BRM\Tenants\app\Commands;
 
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
@@ -8,9 +8,9 @@ use Hyn\Tenancy\Environment;
 use Hyn\Tenancy\Models\Hostname;
 use Hyn\Tenancy\Models\Website;
 
-use Pursuit\Tenants\app\Models\Preference;
+use BRM\Tenants\app\Models\Preference;
 
-use App\User;
+
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
@@ -47,12 +47,7 @@ class Create extends Command
      */
     public function handle()
     {
-        // $url_base = config('app.url_base');
-        // $subdomain = $this->argument('subdomain');
-        // $name = $this->argument('name');
-        // $email = $this->argument('email');
-        // $fqdn = "{$subdomain}";
-
+     
 
         $domain = $this->ask('Domain:');
         $company = $this->ask('Company:');

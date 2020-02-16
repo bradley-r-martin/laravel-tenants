@@ -1,6 +1,6 @@
 <?php
 
-namespace Pursuit\Tenants\app\Commands;
+namespace BRM\Tenants\app\Commands;
 
 use Hyn\Tenancy\Models\Hostname;
 
