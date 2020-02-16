@@ -1,0 +1,30 @@
+{
+  "name": "bradley-r-martin/laravel-tenants",
+  "description": "Tenancy Helper for Laravel based on HYN tenancy.",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Brad Martin",
+      "email": "bradley.r.martin@me.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "hyn/multi-tenant": "^5.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Pursuit\\Tenants\\FrameworkServiceProvider"
+      ],
+      "dont-discover": [
+        "hyn/multi-tenant"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Pursuit\\Tenants\\": "./"
+    }
+  }
+}

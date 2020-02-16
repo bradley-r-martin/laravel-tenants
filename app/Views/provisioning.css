@@ -1,0 +1,1004 @@
+/* 
+
+    HEY!
+    Check my new pen "Amazing Perspective Walking Background"
+    - just CSS
+    - very, very simple
+  
+    https://codepen.io/tonetlds/pen/yOdZLx
+
+*/
+
+/*--------------
+    splash
+---------------*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+  padding: 0em;
+  color: rgba(0, 0, 0, 0.9);
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+svg {
+  position: absolute;
+  top: 0px;
+  bottom: 30px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0.5;
+}
+#root {
+  position: relative;
+  z-index: 2;
+}
+
+.tenant-name {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 6;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+.tenant-name small {
+  display: block;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+h1 img {
+  max-height: 100px;
+  max-width: 70vw;
+}
+p {
+  max-width: 400px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+p strong {
+  display: block;
+}
+.passcode-area > input {
+  color: #fff;
+  background-color: #377cbb;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 0;
+  margin: 25px 6px 0;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.29;
+  text-transform: uppercase;
+  background-clip: padding-box;
+}
+.passcode-area > input:invalid {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #377cbb;
+}
+.passcode-area > input:nth-child(3) {
+  margin-right: 25px;
+}
+
+.passcode-area > input:focus {
+  -webkit-appearance: none;
+  border: 2px solid #377cbb;
+  outline: 0;
+  box-shadow: 0px 0px 3px rgba(131, 192, 253, 0.5);
+}
+.passcode-area button {
+  display: block;
+  margin-top: 30px;
+  padding: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  color: #fff;
+  position: absolute;
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .passcode-area > input:nth-child(3) {
+    margin-right: 6px;
+  }
+  .passcode-area > input {
+    font-size: 25px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+svg circle {
+  stroke-width: 5px;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  opacity: 0;
+  /* animation: 4.5s circle-outline forwards; */
+}
+
+svg path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  /* opacity: 0; */
+  animation: 5s text-outline forwards;
+}
+
+@keyframes circle-outline {
+  from {
+    stroke-dashoffset: 800;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@keyframes text-outline {
+  from {
+    stroke-dashoffset: 250;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circle-pop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cls-63 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.31s;
+}
+
+.cls-64 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.33s;
+}
+
+.cls-65 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.35s;
+}
+
+.cls-66 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.37s;
+}
+
+.cls-67 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.39s;
+}
+
+.cls-68 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.41s;
+}
+
+.cls-69 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.43s;
+}
+
+.cls-70 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.45s;
+}
+
+.cls-71 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.47s;
+}
+
+.cls-72 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.49s;
+}
+
+.cls-73 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.51s;
+}
+
+.cls-74 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.53s;
+}
+
+.cls-75 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.55s;
+}
+
+.cls-76 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.57s;
+}
+
+.cls-77 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.59s;
+}
+
+.cls-78 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.61s;
+}
+
+.cls-79 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.63s;
+}
+
+.cls-80 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.65s;
+}
+
+.cls-81 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.67s;
+}
+
+.cls-82 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.69s;
+}
+
+.cls-83 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.71s;
+}
+
+.cls-84 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.73s;
+}
+
+.cls-85 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.75s;
+}
+
+.cls-86 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.77s;
+}
+
+.cls-87 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.79s;
+}
+
+.cls-88 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.81s;
+}
+
+.cls-89 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.83s;
+}
+
+.cls-90 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.85s;
+}
+
+.cls-91 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.87s;
+}
+
+.cls-92 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.89s;
+}
+
+.cls-93 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.91s;
+}
+
+.cls-94 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.93s;
+}
+
+.cls-95 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.95s;
+}
+
+.cls-96 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.97s;
+}
+
+.cls-97 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 1.99s;
+}
+
+.cls-98 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.01s;
+}
+
+.cls-99 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.03s;
+}
+
+.cls-100 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.05s;
+}
+
+.cls-101 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.07s;
+}
+
+.cls-102 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.09s;
+}
+
+.cls-103 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.11s;
+}
+
+.cls-104 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.13s;
+}
+
+.cls-105 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.15s;
+}
+
+.cls-106 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.17s;
+}
+
+.cls-107 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.19s;
+}
+
+.cls-108 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.21s;
+}
+
+.cls-109 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.23s;
+}
+
+.cls-110 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.25s;
+}
+
+.cls-111 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.27s;
+}
+
+.cls-112 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.29s;
+}
+
+.cls-113 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.31s;
+}
+
+.cls-114 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.33s;
+}
+
+.cls-115 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.35s;
+}
+
+.cls-116 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.37s;
+}
+
+.cls-117 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.39s;
+}
+
+.cls-118 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.41s;
+}
+
+.cls-119 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.43s;
+}
+
+.cls-120 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.45s;
+}
+
+.cls-121 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.47s;
+}
+
+.cls-122 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.49s;
+}
+
+.cls-123 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.51s;
+}
+
+.cls-124 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.53s;
+}
+
+.cls-125 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.55s;
+}
+
+.cls-126 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.57s;
+}
+
+.cls-127 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.59s;
+}
+
+.cls-128 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.61s;
+}
+
+.cls-129 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.63s;
+}
+
+.cls-130 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.65s;
+}
+
+.cls-131 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.67s;
+}
+
+.cls-132 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.69s;
+}
+
+.cls-133 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.71s;
+}
+
+.cls-134 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.73s;
+}
+
+.cls-135 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.75s;
+}
+
+.cls-136 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.77s;
+}
+
+.cls-137 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.79s;
+}
+
+.cls-138 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.81s;
+}
+
+.cls-139 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.83s;
+}
+
+.cls-140 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.85s;
+}
+
+.cls-141 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.87s;
+}
+
+.cls-142 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.89s;
+}
+
+.cls-143 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.91s;
+}
+
+.cls-144 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.93s;
+}
+
+.cls-145 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.95s;
+}
+
+.cls-146 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.97s;
+}
+
+.cls-147 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 2.99s;
+}
+
+.cls-148 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.01s;
+}
+
+.cls-149 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.03s;
+}
+
+.cls-150 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.05s;
+}
+
+.cls-151 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.07s;
+}
+
+.cls-152 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.09s;
+}
+
+.cls-153 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.11s;
+}
+
+.cls-154 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.13s;
+}
+
+.cls-155 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.15s;
+}
+
+.cls-156 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.17s;
+}
+
+.cls-157 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.19s;
+}
+
+.cls-158 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.21s;
+}
+
+.cls-159 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.23s;
+}
+
+.cls-160 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.25s;
+}
+
+.cls-161 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.27s;
+}
+
+.cls-162 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.29s;
+}
+
+.cls-163 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.31s;
+}
+
+.cls-164 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.33s;
+}
+
+.cls-165 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.35s;
+}
+
+.cls-166 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.37s;
+}
+
+.cls-167 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.39s;
+}
+
+.cls-168 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.41s;
+}
+
+.cls-169 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.43s;
+}
+
+.cls-170 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.45s;
+}
+
+.cls-171 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.47s;
+}
+
+.cls-172 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.49s;
+}
+
+.cls-173 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.51s;
+}
+
+.cls-174 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.53s;
+}
+
+.cls-175 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.55s;
+}
+
+.cls-176 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.57s;
+}
+
+.cls-177 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.59s;
+}
+
+.cls-178 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.61s;
+}
+
+.cls-179 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.63s;
+}
+
+.cls-180 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.65s;
+}
+
+.cls-181 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.67s;
+}
+
+.cls-182 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.69s;
+}
+
+.cls-183 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.71s;
+}
+
+.cls-184 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.73s;
+}
+
+.cls-185 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.75s;
+}
+
+.cls-186 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.77s;
+}
+
+.cls-187 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.79s;
+}
+
+.cls-188 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.81s;
+}
+
+.cls-189 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.83s;
+}
+
+.cls-190 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.85s;
+}
+
+.cls-191 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.87s;
+}
+
+.cls-192 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.89s;
+}
+
+.cls-193 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.91s;
+}
+
+.cls-194 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.93s;
+}
+
+.cls-195 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.95s;
+}
+
+.cls-196 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.97s;
+}
+
+.cls-197 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 3.99s;
+}
+
+.cls-198 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 4.01s;
+}
+
+.cls-199 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 4.03s;
+}
+
+.cls-200 {
+  opacity: 0;
+  animation: 1s circle-pop forwards;
+  animation-delay: 4.05s;
+}
