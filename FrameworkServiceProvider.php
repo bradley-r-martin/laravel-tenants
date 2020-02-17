@@ -23,7 +23,7 @@ class FrameworkServiceProvider extends ServiceProvider
           'tenancy.hostname.update-app-url'=> false,
           'tenancy.db.auto-delete-tenant-database' => true,
           'tenancy.db.system-connection-name' => 'mysql',
-          'tenancy.db.tenant-migrations-path' => base_path('vendor/bradley-r-martin/*/app/Database/Migrations'),
+          'tenancy.db.tenant-migrations-path' => base_path('*/*/*/app/Database/Migrations'),
           'tenancy.db.tenant-seed-class'=> \BRM\Tenants\app\Seed::class,
           'tenancy.models.website' => \BRM\Tenants\app\Models\Provision::class
         ]);
