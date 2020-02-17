@@ -2,7 +2,7 @@
 
 namespace BRM\Tenants\app\Commands;
 
-use Hyn\Tenancy\Models\Hostname;
+use BRM\Tenants\app\Services\Tenants;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class Activate extends Command
      *
      * @var string
      */
-    protected $signature = 'tenancy:activate';
+    protected $signature = 'tenant:activate {--I|id=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Activates a tenancy';
+    protected $description = 'Activates a tenant';
 
     /**
      * Create a new command instance.
@@ -38,16 +38,22 @@ class Activate extends Command
      * @return mixed
      */
     public function handle(){        
-        $domain = $this->ask('Tenant Domain:');
-        if($tenant = Hostname::where( 'fqdn', $domain )->first()){
-          $tenant->status = 'active';
-          $tenant->save();
-          $this->info( "'{$domain}' is now publicly avaiable. ");
-        }else{
-          $this->error( "A tenant with the domain '{$domain}' does not exists." );
-          return;
-        }
-    }
+      if(!$id = $this->option('id')){
+        $id = $this->ask('Id');
+      }
 
+      $response = (new Tenants())->update([
+        'tenant'=>$id,
+        'status'=>'active',
+        'passcode'=>''
+      ]);
+      if($response['status']==='success'){
+        $this->info('Tenant successfuly activated!');
+        return;
+      }
+      $this->error('Tenant failed to activate!');
+      print_r($response['data']);
+      return;
+    }
 
 }

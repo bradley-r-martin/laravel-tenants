@@ -48,8 +48,7 @@ class Tenants
     {
         $this->validation = [
           'name' => ['required'],
-          'domain' => ['required'],
-          'passcode' => ['required']
+          'domain' => ['required']
         ];
 
         $this->hook('beforeSave', function () {

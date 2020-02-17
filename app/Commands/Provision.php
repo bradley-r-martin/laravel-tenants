@@ -2,7 +2,7 @@
 
 namespace BRM\Tenants\app\Commands;
 
-use Hyn\Tenancy\Models\Hostname;
+use BRM\Tenants\app\Services\Tenants;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class Provision extends Command
      *
      * @var string
      */
-    protected $signature = 'tenancy:provision';
+    protected $signature = 'tenant:provision {--I|id=} {--P|passcode=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Provisions a tenancy';
+    protected $description = 'Sets tenant to provisioning';
 
     /**
      * Create a new command instance.
@@ -38,18 +38,24 @@ class Provision extends Command
      * @return mixed
      */
     public function handle(){        
-        $domain = $this->ask('Tenant Domain:');
-        if($tenant = Hostname::where( 'fqdn', $domain )->first()){
-          $passcode = $this->ask('Passcode: (6 chars)');
-          $tenant->status = 'provisioning';
-          $tenant->passcode = $passcode;
-          $tenant->save();
-          $this->info( "'{$domain}' is now provisioning and can be accessed using passcode: '{$passcode}'. ");
-        }else{
-          $this->error( "A tenant with the domain '{$domain}' does not exists." );
-          return;
-        }
+      if(!$id = $this->option('id')){
+        $id = $this->ask('Id');
+      }
+      if(!$passcode = $this->option('passcode')){
+        $passcode = $this->ask('Passcode (6 digits)');
+      }
+
+      $response = (new Tenants())->update([
+        'tenant'=>$id,
+        'status'=>'provisioning',
+        'passcode'=> $passcode
+      ]);
+      if($response['status']==='success'){
+        $this->info('Tenant successfuly set to provisioning!');
+        return;
+      }
+      $this->error('Tenant failed to set to provisioning!');
+      print_r($response['data']);
+      return;
     }
-
-
 }

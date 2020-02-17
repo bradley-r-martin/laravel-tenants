@@ -27,6 +27,7 @@ class CreateModules extends AbstractMigration
             $table->bigInteger('domainId')->unsigned();
             $table->foreign('domainId')->references('id')->on('hostnames')->onDelete('cascade');
             $table->string('module');
+            $table->text('payload')->nullable();
             $table->timestamp('createdAt')->useCurrent();
             $table->timestamp('updatedAt')->nullable();
             $table->timestamp('deletedAt')->nullable();

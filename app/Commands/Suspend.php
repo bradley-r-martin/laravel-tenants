@@ -2,7 +2,7 @@
 
 namespace BRM\Tenants\app\Commands;
 
-use Hyn\Tenancy\Models\Hostname;
+use BRM\Tenants\app\Services\Tenants;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class Suspend extends Command
      *
      * @var string
      */
-    protected $signature = 'tenancy:suspend';
+    protected $signature = 'tenant:suspend {--I|id=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Suspends a tenancy';
+    protected $description = 'Suspends a tenant';
 
     /**
      * Create a new command instance.
@@ -38,15 +38,21 @@ class Suspend extends Command
      * @return mixed
      */
     public function handle(){        
-        $domain = $this->ask('Tenant Domain:');
-        if($tenant = Hostname::where( 'fqdn', $domain )->first()){
-          $tenant->status = 'suspended';
-          $tenant->save();
-          $this->info( "'{$domain}' is now suspended. ");
-        }else{
-          $this->error( "A tenant with the domain '{$domain}' does not exists." );
-          return;
-        }
+      if(!$id = $this->option('id')){
+        $id = $this->ask('Id');
+      }
+
+      $response = (new Tenants())->update([
+        'tenant'=>$id,
+        'status'=>'suspended'
+      ]);
+      if($response['status']==='success'){
+        $this->info('Tenant successfuly suspended!');
+        return;
+      }
+      $this->error('Tenant failed to suspend!');
+      print_r($response['data']);
+      return;
     }
 
 

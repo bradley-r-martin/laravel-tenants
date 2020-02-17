@@ -2,13 +2,8 @@
 
 namespace BRM\Tenants\app\Commands;
 
-use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
-use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
-use Hyn\Tenancy\Environment;
-use Hyn\Tenancy\Models\Hostname;
-use Hyn\Tenancy\Models\Website;
 
-use BRM\Tenants\app\Models\Preference;
+use BRM\Tenants\app\Services\Tenants;
 
 
 use Illuminate\Console\Command;
@@ -21,7 +16,7 @@ class Create extends Command
      *
      * @var string
      */
-    protected $signature = 'tenancy:create';
+    protected $signature = 'tenant:create {--D|domain=} {--N|name=} {--S|status=} {--P|passcode=}';
 
     /**
      * The console command description.
@@ -47,76 +42,40 @@ class Create extends Command
      */
     public function handle()
     {
-     
 
-        $domain = $this->ask('Domain:');
-        $company = $this->ask('Company:');
-        $name = $this->ask('Contact Name:');
-        $email = $this->ask('Email:');
-
-        if ($this->tenantExists($domain)) {
-            $this->error("A tenant with the domain '{$domain}' already exists.");
-            return;
+      if(!$name = $this->option('name')){
+        $name = $this->ask('Name');
+      }
+      if(!$domain = $this->option('domain')){
+        $domain = $this->ask('Domain');
+      }
+      if(!$status = $this->option('status')){
+        $status = $this->choice('Status', ['active', 'suspended','provisioning'], 3);
+      }
+      $passcode = '';
+      if($status === 'provisioning'){
+        if(!$passcode = $this->option('passcode')){
+          $passcode = $this->ask('Passcode (6 digits)');
         }
-    
+      }
 
-        $this->make('website');
-        $this->make('hostname', [
-          'domain'=> $domain,
-          'company'=> $company
-        ]);
-
-        // swap the environment over to the hostname
-        app(Environment::class)->hostname($this->hostname);
-
-        $this->make('preferences');
- 
-        // Make tenacy account
-        $this->make('user', [
-          'name' => $name,
-          'email' => $email,
-          'password' => Hash::make('secret')
-        ]);
-        // Migrate Tenancy
-        $this->migrate();
-     
-        $this->info("Tenant '{$company}' created for {$domain}");
-        $this->info("The user '{$email}' can log in with password secret");
+      $tenant = [
+        'name' => $name,
+        'domain' => $domain,
+        'status' => $status,
+        'passcode' => $passcode
+      ];
+      $tenancy = new Tenants();
+      $response = $tenancy->store($tenant);
+      if($response['status']==='success'){
+        $this->info('Tenant Successfuly created!');
+        $headers = ['Name', 'Domain','Status','Passcode'];
+        $this->table($headers, [$tenant]);
+        return;
+      }
+      $this->error('Tenant failed to create!');
+      print_r($response['data']);
+      return;
     }
 
-    private function make($type, $data = [])
-    {
-        if ($type==='user') {
-            $this->user = User::create($data);
-            return $this->user;
-        } elseif ($type==='website') {
-            $this->website = new Website;
-            app(WebsiteRepository::class)->create($this->website);
-            return $this->website;
-        } elseif ($type==='hostname') {
-            $this->hostname = new Hostname;
-            $this->hostname->fqdn = $data['domain'];
-            $this->hostname->name = $data['company'];
-            app(HostnameRepository::class)->attach($this->hostname, $this->website);
-        } elseif ($type==='preferences') {
-            $this->preferences = new Preference;
-            $this->preferences->hostId = $this->hostname->id;
-            $this->preferences->save();
-        }
-    }
-    private function migrate()
-    {
-        if ($this->website) {
-            $this->call('tenancy:migrate', [
-          '--website_id' => $this->website->id
-          ]);
-        }
-    }
-
-
-    private function tenantExists($fqdn)
-    {
-        // check to see if any Hostnames in the database have the same fqdn
-        return Hostname::where('fqdn', $fqdn)->exists();
-    }
 }

@@ -45,11 +45,13 @@ class FrameworkServiceProvider extends ServiceProvider
     
         if ($this->app->runningInConsole()) {
             $this->commands([
-              \BRM\Tenants\app\Commands\Activate::class,
+             
               \BRM\Tenants\app\Commands\Suspend::class,
               \BRM\Tenants\app\Commands\Create::class,
-              \BRM\Tenants\app\Commands\Delete::class,
-              \BRM\Tenants\app\Commands\Provision::class,
+              \BRM\Tenants\app\Commands\Delete::class, 
+              \BRM\Tenants\app\Commands\Provision::class, 
+              \BRM\Tenants\app\Commands\Activate::class,
+              
               \BRM\Tenants\app\Commands\Initialise::class
             ]);
         }
