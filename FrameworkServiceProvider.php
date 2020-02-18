@@ -23,7 +23,7 @@ class FrameworkServiceProvider extends ServiceProvider
           'tenancy.hostname.update-app-url'=> false,
           'tenancy.db.auto-delete-tenant-database' => true,
           'tenancy.db.system-connection-name' => 'mysql',
-          'tenancy.website.disk' => config('filesystem.default'),
+          'tenancy.website.disk' => env('FILESYSTEM_DRIVER', 'local'),
           'tenancy.db.tenant-migrations-path' => base_path('*/*/*/app/Database/Migrations'),
           'tenancy.db.tenant-seed-class'=> \BRM\Tenants\app\Seed::class,
           'tenancy.models.website' => \BRM\Tenants\app\Models\Provision::class
