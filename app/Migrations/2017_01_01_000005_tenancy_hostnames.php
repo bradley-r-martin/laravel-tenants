@@ -35,7 +35,7 @@ class TenancyHostnames extends AbstractMigration
 
             $table->timestamp('under_maintenance_since')->nullable();
             $table->bigInteger('website_id')->unsigned()->nullable();
-
+            $table->boolean('invisible')->default(false);
             $table->timestamps();
             $table->softDeletes();
 
