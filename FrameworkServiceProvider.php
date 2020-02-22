@@ -26,7 +26,8 @@ class FrameworkServiceProvider extends ServiceProvider
           'tenancy.website.disk' => env('FILESYSTEM_DRIVER', 'local'),
           'tenancy.db.tenant-migrations-path' => base_path('*/*/*/app/Database/Migrations'),
           'tenancy.db.tenant-seed-class'=> \BRM\Tenants\app\Seed::class,
-          'tenancy.models.website' => \BRM\Tenants\app\Models\Provision::class
+          'tenancy.models.website' => \BRM\Tenants\app\Models\Website::class,
+         // 'tenancy.models.hostname' => \BRM\Tenants\app\Models\Hostname::class
         ]);
     }
 
@@ -52,7 +53,6 @@ class FrameworkServiceProvider extends ServiceProvider
               \BRM\Tenants\app\Commands\Delete::class, 
               \BRM\Tenants\app\Commands\Provision::class, 
               \BRM\Tenants\app\Commands\Activate::class,
-              
               \BRM\Tenants\app\Commands\Initialise::class
             ]);
         }

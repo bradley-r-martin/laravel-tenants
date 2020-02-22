@@ -24,24 +24,33 @@
      padding: 0px;
      width: 100%;
      display: flex;
-  
+     justify-content:center;
    }
    .pathway li {
      list-style: none;
    }
+   .pathway li:first-child{
+    text-align:right;
+    flex:1;
+   }
+   .pathway li:last-child{
+    text-align:left;
+    flex:1;
+   }
    .pathway__bar {
-     flex: 1;
      display: flex;
      align-items: center;
      justify-content: center;
      padding-left: 5%;
      padding-right: 5%;
+     width:150px;
    }
    .pathway__bar span {
      display: block;
      background: #666;
      height: 2px;
      width: 100%;
+     min-width:120px;
      position: relative;
    }
    .pathway__bar span:after, .pathway__bar span:before {

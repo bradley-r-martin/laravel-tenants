@@ -16,6 +16,9 @@
      justify-content: center;
      text-align: center;
    }
+   #root > div{
+     width:100%;
+   }
    body {
       background-color:#eee;
      color: rgba(0, 0, 0, 0.6);
