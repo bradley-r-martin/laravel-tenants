@@ -31,15 +31,15 @@ class Provisioning
                     session_destroy();
                 }
                 if (!isset($_SESSION["authorised"])) {
-                    return new Response(view('tenants::provisioning'), 401);
+                    return new Response(view('tenants::gated.gated'), 401);
                 }
             } elseif ($tenant->status ==='suspended') {
                 // Tenant account suspended
-                return new Response(view('tenants::suspended'), 402);
+                return new Response(view('tenants::suspended.suspended'), 402);
             }
         } else {
             // Domain parked with no active tenant
-            return new Response(view('tenants::parked'), 202);
+            return new Response(view('tenants::parked.parked'), 200);
         }
         return $next($request);
     }
