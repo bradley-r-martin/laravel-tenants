@@ -20,7 +20,7 @@ class Setting extends Model
       'createdAt',
       'updatedAt',
       'id',
-      'domainId',
+      'hostname_id',
     ];
 
     protected $dates = [

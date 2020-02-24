@@ -12,7 +12,7 @@ class Module extends Model
     const DELETED_AT = 'deletedAt';
 
     protected $casts = [
-  
+      'payload' => 'array'
     ];
 
     protected $hidden = [
@@ -20,7 +20,7 @@ class Module extends Model
       'createdAt',
       'updatedAt',
       'id',
-      'domainId',
+      'hostname_id',
     ];
 
     protected $dates = [

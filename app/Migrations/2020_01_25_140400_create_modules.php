@@ -24,8 +24,8 @@ class CreateModules extends AbstractMigration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('domainId')->unsigned();
-            $table->foreign('domainId')->references('id')->on('hostnames')->onDelete('cascade');
+            $table->bigInteger('hostname_id')->unsigned();
+            $table->foreign('hostname_id')->references('id')->on('hostnames')->onDelete('cascade');
             $table->string('module');
             $table->text('payload')->nullable();
             $table->timestamp('createdAt')->useCurrent();

@@ -13,7 +13,7 @@ class Tenants
     use \BRM\Vivid\app\Traits\Vivid;
     public function __construct()
     {
-        $this->model = \BRM\Tenants\app\Models\Tenant::class;
+        $this->model = \BRM\Tenants\app\Models\Hostname::class;
         $this->fields = [
           'name',
           'passcode',
@@ -66,13 +66,13 @@ class Tenants
             ];
             foreach ($modules as $module) {
                 $m = (new \BRM\Tenants\app\Models\Module);
-                $m->domainId = $this->record->id;
+                $m->hostname_id = $this->record->id;
                 $m->module = $module;
                 $m->save();
             }
 
             $settings = (new \BRM\Tenants\app\Models\Setting);
-            $settings->domainId = $this->record->id;
+            $settings->hostname_id = $this->record->id;
             if (isset($this->data['color'])) {
                 $color = $this->data['color'];
                 $theme = "

@@ -32,7 +32,6 @@ class TenancyHostnames extends AbstractMigration
             $table->enum('status', ['provisioning','active','suspended'])->default('provisioning');
             $table->string('passcode')->nullable();
          
-
             $table->timestamp('under_maintenance_since')->nullable();
             $table->bigInteger('website_id')->unsigned()->nullable();
             $table->boolean('invisible')->default(false);
