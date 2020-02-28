@@ -17,6 +17,7 @@ class Hostname extends Contract
     {
         return $this->hasOne(\BRM\Tenants\app\Models\Setting::class, 'hostname_id', 'id');
     }
+
     public function modules()
     {
         return $this->hasOne(\BRM\Tenants\app\Models\Module::class, 'hostname_id', 'id');
@@ -26,4 +27,5 @@ class Hostname extends Contract
     {
         return $this->hasOne(\BRM\Tenants\app\Models\Website::class, 'id', 'website_id');
     }
+
 }
