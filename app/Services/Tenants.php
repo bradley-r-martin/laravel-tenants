@@ -102,8 +102,8 @@ class Tenants
             }
             $settings->save();
   
-            \Artisan::call('tenancy:migrate --website_id='.$this->record->website_id);
-            \Artisan::call('tenancy:db:seed --website_id='.$this->record->website_id);
+            \Artisan::call('tenancy:migrate --force --website_id='.$this->record->website_id);
+            \Artisan::call('tenancy:db:seed --force --website_id='.$this->record->website_id);
         });
 
         return $this->vivid('store', $data);
