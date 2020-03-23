@@ -11,7 +11,7 @@
   "minimum-stability": "dev",
   "require": {
     "bradley-r-martin/laravel-vivid": "1.0.0",
-    "hyn/multi-tenant": "^5.5"
+    "hyn/multi-tenant": "^5.6"
   },
   "extra": {
     "laravel": {
