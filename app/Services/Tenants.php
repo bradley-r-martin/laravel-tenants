@@ -48,7 +48,7 @@ class Tenants
     {
         $this->validation = [
           'name' => ['required'],
-          'domain' => ['required','unique:hostnames,fqdn']
+          'domain' => ['required','unique:tenant.hostnames,fqdn']
         ];
 
         $this->hook('beforeSave', function () {
