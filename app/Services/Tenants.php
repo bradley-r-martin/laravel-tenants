@@ -48,7 +48,7 @@ class Tenants
     {
         $this->validation = [
           'name' => ['required'],
-          'domain' => ['required','unique:tenant.hostnames,fqdn']
+          // 'domain' => ['required','unique:hostnames,fqdn']
         ];
 
         $this->hook('beforeSave', function () {
@@ -155,11 +155,17 @@ class Tenants
         $this->validation = [
           'tenant' => ['required']
         ];
-        $data['hostname'] = 0;
-        if (isset($data['tenant'])) {
-            $data['hostname'] = $data['tenant'];
+      
+    
+        if ($hostname = Hostname::find($data['tenant'])) {
+            $website = $hostname->website->first();
+            app(HostnameRepository::class)->delete($hostname, false);
+            app(WebsiteRepository::class)->delete($website, false);
         }
-     
-        return $this->vivid('destroy', $data);
+
+
+        return [
+          'status'=> 'success'
+        ];
     }
 }
