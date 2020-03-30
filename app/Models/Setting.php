@@ -21,6 +21,13 @@ class Setting extends Model
       'updatedAt',
       'id',
       'hostname_id',
+      'smtpEmail',
+      'smtpName',
+      'smtpHost',
+      'smtpPort',
+      'smtpUsername',
+      'smtpPassword',
+      'smtpEncryption'
     ];
 
     protected $dates = [

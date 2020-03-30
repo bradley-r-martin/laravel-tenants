@@ -15,7 +15,14 @@ class Settings
           'mask',
           'color',
           'privacy',
-          'terms'
+          'terms',
+          'smtpEmail',
+          'smtpName',
+          'smtpHost',
+          'smtpPort',
+          'smtpUsername',
+          'smtpPassword',
+          'smtpEncryption'
         ];
         $this->filters = [
         ];
